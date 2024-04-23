@@ -1,10 +1,8 @@
 'use client';
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { slackToken , oathToken } from "@/app/Keys";
 import axios from "axios";
-
-const slackToken = 'xapp-1-A06BB6LFEUW-7004530358595-d6bc085bbe4d3612ac98b76b48324e5d64f6262ab95ac98f6afa577d4661957c';
-const oathToken = 'xoxb-6291828670053-6391755265523-LeCY2hCDuJEXoiLvP47Ve9js'
 
 export const fetchChatMessages = createAsyncThunk(
     'reducer/fetchChatMessages',
