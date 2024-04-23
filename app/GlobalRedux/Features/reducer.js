@@ -3,8 +3,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const slackToken = 'xapp-1-A068J13CD2S-6393269239972-78e7e194544b38fee2a12d1c50fddc2b635f2846af67ecc76bf595e4747ac3cd';
-const oathToken = 'xoxb-6291828670053-6317045223441-vSH6GE1aX0vmft5FRjyj1gG2'
+const slackToken = 'xapp-1-A06BB6LFEUW-7004530358595-d6bc085bbe4d3612ac98b76b48324e5d64f6262ab95ac98f6afa577d4661957c';
+const oathToken = 'xoxb-6291828670053-6391755265523-LeCY2hCDuJEXoiLvP47Ve9js'
 
 export const fetchChatMessages = createAsyncThunk(
     'reducer/fetchChatMessages',

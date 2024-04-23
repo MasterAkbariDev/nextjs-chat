@@ -31,11 +31,12 @@ const MainLayout = () => {
             }
             const response = await axios.post('https://slack.com/api/apps.connections.open', {}, {
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${slackToken}`,
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Authorization': `Bearer ${slackToken}`
                 }
             });
             const data = await response.data;
+            console.log(data);
             ws = new WebSocket(data.url);
             ws.onopen = () => {
                 console.log('WebSocket Connected');
@@ -52,7 +53,6 @@ const MainLayout = () => {
                 }
             };
             ws.onerror = (e) => {
-                console.log(e);
                 setWebSocketError('Error in Starting to WebSocket! ' + e)
             }
             ws.onclose = (e) => {
@@ -71,6 +71,7 @@ const MainLayout = () => {
                     'Authorization': `Bearer ${oathToken}`,
                 },
             });
+            console.log(receiveChannels);
             const Channels = receiveChannels.data.channels.filter((item) => {
                 if (item.is_member)
                     return item
@@ -91,6 +92,13 @@ const MainLayout = () => {
         }
     }
 
+    useEffect(() => {
+        console.log(webSocketError);
+    } , [webSocketError])
+    
+    useEffect(() => {
+        console.log(errorText);
+    } , [errorText])
 
     useEffect(() => {
         Start()
